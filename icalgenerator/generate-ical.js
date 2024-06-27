@@ -13,9 +13,8 @@ const cal = ical({ domain: 'yourdomain.com', name: 'My Calendar' });
 
 list.forEach(item => {
     cal.createEvent({
-        id: item.Id,
-        start: new Date(item.EventStartDate),
-        end: new Date(item.EventEndDate),
+        start: new Date(item.AppStartDate),
+        end: new Date(item.AppEndDate),
         summary: item.Name,
         description: item.Description,
         url: item.URL
