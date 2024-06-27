@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import list from '../data/list.json';
+---
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		table-layout: fixed;
+	}
+	th {
+		background-color: #f0f0f0;
+	}
+	th, td {
+		border: 1px solid #ccc;
+		padding: 0.5em;
+	}
+</style>
+
+<Layout title="魔法のスプレッドシート U18">
+	<main>
+		<h1>魔法のスプレッドシート U18</h1>
+		<p>U18のためのスプレッドシートです。</p>
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Description</th>
+					<th scope="col">AppStartDate</th>
+					<th scope="col">AppEndDate</th>
+					<th scope="col">EventStartDate</th>
+					<th scope="col">EventEndDate</th>
+					<th scope="col">Status</th>
+					<th scope="col">URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				{list.map((item) => (
+					<tr>
+						<td>{item.Name}</td>
+						<td>{item.Description}</td>
+						<td>{item.AppStartDate}</td>
+						<td>{item.AppEndDate}</td>
+						<td>{item.EventStartDate}</td>
+						<td>{item.EventEndDate}</td>
+						<td>{item.Status}</td>
+						<td>{item.URL}</td>
+					</tr>
+				))}
+			</tbody>
+		</table>		
+	</main>
+</Layout>
