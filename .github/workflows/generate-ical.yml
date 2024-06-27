@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "website/public/calendar.ics"
+      - "website/src/data/list.json"
 
 jobs:
   build:
