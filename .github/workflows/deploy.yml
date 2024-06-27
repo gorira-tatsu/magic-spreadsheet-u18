@@ -1,13 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 'main' ブランチにプッシュされた時に実行
   push:
     branches: [ main ]
-  # 手動で実行することも可能
   workflow_dispatch:
 
-# GitHub Pagesへの書き込み権限を設定
 permissions:
   contents: read
   pages: write
@@ -19,12 +16,26 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
-      - name: Install, build, and upload your site
-        uses: withastro/action@v1
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          path: ./website
           node-version: 18
-          package-manager: yarn
+
+      - name: Install dependencies
+        run: |
+          cd website
+          yarn install
+
+      - name: Build website
+        run: |
+          cd website
+          yarn build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./website/dist
 
   deploy:
     needs: build
