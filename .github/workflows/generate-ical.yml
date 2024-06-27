@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "website/src/data/list.json"
 
 jobs:
   build:
