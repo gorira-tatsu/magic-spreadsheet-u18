@@ -84,13 +84,14 @@ import list from '../data/list.json';
         <table>
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">AppStartDate</th>
-                    <th scope="col">AppEndDate</th>
-                    <th scope="col">EventStartDate</th>
-                    <th scope="col">EventEndDate</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">プログラム名</th>
+                    <th scope="col">対象</th>
+                    <th scope="col">プログラム概要</th>
+                    <th scope="col">応募開始日</th>
+                    <th scope="col">応募締切日</th>
+                    <th scope="col">イベント開始日</th>
+                    <th scope="col">イベント終了日</th>
+                    <th scope="col">ステータス</th>
                     <th scope="col">URL</th>
                 </tr>
             </thead>
@@ -98,6 +99,7 @@ import list from '../data/list.json';
                 {list.map((item) => (
                     <tr>
                         <td data-label="Name">{item.Name}</td>
+                        <td data-label="Target">{item.Target}</td>
                         <td data-label="Description">{item.Description}</td>
                         <td data-label="AppStartDate">{item.AppStartDate}</td>
                         <td data-label="AppEndDate">{item.AppEndDate}</td>

@@ -1,7 +1,7 @@
 [
     {
-        "Id": 1,
         "Name": "Program_Name",
+        "Target": "High School",
         "Description": "text description",
         "AppStartDate": "2021-01-01",
         "AppEndDate": "2021-12-31",
