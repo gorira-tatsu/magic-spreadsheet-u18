@@ -26,10 +26,10 @@ jobs:
 
     - name: Commit and push iCal file
       run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
         git add website/public/calendar.ics
-        git commit -m 'Add generated iCal file'
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git commit -m "Generate iCal file"
+        git push origin HEAD:${GITHUB_REF}
+
