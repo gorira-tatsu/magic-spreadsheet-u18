@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  # 'main' ブランチにプッシュされた時に実行
+  push:
+    branches: [ main ]
+  # 手動で実行することも可能
+  workflow_dispatch:
+
+# GitHub Pagesへの書き込み権限を設定
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+      - name: Install, build, and upload your site
+        uses: withastro/action@v1
+        with:
+          path: ./website
+          node-version: 18
+          package-manager: yarn
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

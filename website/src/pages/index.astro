@@ -3,51 +3,111 @@ import Layout from '../layouts/Layout.astro';
 import list from '../data/list.json';
 ---
 <style>
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		table-layout: fixed;
-	}
-	th {
-		background-color: #f0f0f0;
-	}
-	th, td {
-		border: 1px solid #ccc;
-		padding: 0.5em;
-	}
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    p {
+        text-align: center;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 2px solid #dee2e6;
+    }
+    td {
+        padding: 1rem;
+        border-bottom: 1px solid #dee2e6;
+    }
+    tr:last-child td {
+        border-bottom: none;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+    @media (max-width: 768px) {
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        tr {
+            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+        }
+        td {
+            border: none;
+            position: relative;
+            padding-left: 50%;
+        }
+        td:before {
+            content: attr(data-label);
+            position: absolute;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+    }
 </style>
 
 <Layout title="魔法のスプレッドシート U18">
-	<main>
-		<h1>魔法のスプレッドシート U18</h1>
-		<p>U18のためのスプレッドシートです。</p>
-		<table>
-			<thead>
-				<tr>
-					<th scope="col">Name</th>
-					<th scope="col">Description</th>
-					<th scope="col">AppStartDate</th>
-					<th scope="col">AppEndDate</th>
-					<th scope="col">EventStartDate</th>
-					<th scope="col">EventEndDate</th>
-					<th scope="col">Status</th>
-					<th scope="col">URL</th>
-				</tr>
-			</thead>
-			<tbody>
-				{list.map((item) => (
-					<tr>
-						<td>{item.Name}</td>
-						<td>{item.Description}</td>
-						<td>{item.AppStartDate}</td>
-						<td>{item.AppEndDate}</td>
-						<td>{item.EventStartDate}</td>
-						<td>{item.EventEndDate}</td>
-						<td>{item.Status}</td>
-						<td>{item.URL}</td>
-					</tr>
-				))}
-			</tbody>
-		</table>		
-	</main>
+    <main>
+        <h1>魔法のスプレッドシート U18</h1>
+        <p>U18のためのスプレッドシートです。<a href="/calendar.ics" download class="download-link">カレンダーをダウンロード (.ics)</a></p>
+		<p>プログラムの追加、プロジェクトへの提案は<a href="https://github.com/gorira-tatsu/magic-spreadsheet-u18">GitHub</a>まで</p>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">AppStartDate</th>
+                    <th scope="col">AppEndDate</th>
+                    <th scope="col">EventStartDate</th>
+                    <th scope="col">EventEndDate</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {list.map((item) => (
+                    <tr>
+                        <td data-label="Name">{item.Name}</td>
+                        <td data-label="Description">{item.Description}</td>
+                        <td data-label="AppStartDate">{item.AppStartDate}</td>
+                        <td data-label="AppEndDate">{item.AppEndDate}</td>
+                        <td data-label="EventStartDate">{item.EventStartDate}</td>
+                        <td data-label="EventEndDate">{item.EventEndDate}</td>
+                        <td data-label="Status">{item.Status}</td>
+                        <td data-label="URL"><a href={item.URL}>{item.URL}</a></td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>        
+    </main>
 </Layout>
