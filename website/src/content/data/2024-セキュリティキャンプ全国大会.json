@@ -1,0 +1,11 @@
+{
+    "Name": "セキュリティキャンプ全国大会",
+    "Target": "2024年4月1日時点において13歳以上、2025年3月31日時点において22歳以下の学生・生徒",
+    "Description": "セキュリティ・キャンプ全国大会は、アカデミアやインダストリーの第一線で活躍する業界トップの講師陣をお招きし、最新のサイバーセキュリティに関する講義を実施します。",
+    "AppStartDate": "2024-04-08",
+    "AppEndDate": "2024-05-13",
+    "EventStartDate": "2024-08-12",
+    "EventEndDate": "2024-08-17",
+    "Status": "Closed",
+    "URL" : "https://www.ipa.go.jp/jinzai/security-camp/2024/camp/zenkoku/index.html"
+}
