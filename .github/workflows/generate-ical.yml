@@ -19,10 +19,10 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: cd website && yarn install
+      run: cd icalgenerator && yarn install
 
     - name: Generate iCal file
-      run: node icalgenerator/generate-ical.mjs
+      run: node icalgenerator/generate-ical.js
 
     - name: Commit and push iCal file
       run: |
