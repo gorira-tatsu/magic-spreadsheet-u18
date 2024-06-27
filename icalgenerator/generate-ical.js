@@ -1,10 +1,9 @@
 import ical from 'ical-generator';
 import fs from 'fs';
-
-
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// ファイルパスの設定
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const listPath = path.join(__dirname, '../website/src/data/list.json');
@@ -29,4 +28,5 @@ if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir);
 }
 
-cal.saveSync(path.join(publicDir, 'calendar.ics'));
+// iCalデータを文字列として取得し、ファイルに書き込む
+fs.writeFileSync(path.join(publicDir, 'calendar.ics'), cal.toString());
