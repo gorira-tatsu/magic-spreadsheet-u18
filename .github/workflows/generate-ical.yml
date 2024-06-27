@@ -19,13 +19,13 @@ jobs:
         node-version: '14'
 
     - name: Install dependencies
-      run: npm install ical-generator
+      run: cd icalgenerator && yarn install
 
     - name: Generate iCal file
-      run: node generate-ical.js
+      run: node icalgenerator/generate-ical.js
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: calendar-ics
-        path: public/calendar.ics
+        path: website/public/calendar.ics
