@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import list from '../data/list.json';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const programs = await getCollection('data');
 ---
 <style>
     main {
@@ -96,17 +98,17 @@ import list from '../data/list.json';
                 </tr>
             </thead>
             <tbody>
-                {list.map((item) => (
+                {programs.map((program: CollectionEntry<'data'>) => (
                     <tr>
-                        <td data-label="Name">{item.Name}</td>
-                        <td data-label="Target">{item.Target}</td>
-                        <td data-label="Description">{item.Description}</td>
-                        <td data-label="AppStartDate">{item.AppStartDate}</td>
-                        <td data-label="AppEndDate">{item.AppEndDate}</td>
-                        <td data-label="EventStartDate">{item.EventStartDate}</td>
-                        <td data-label="EventEndDate">{item.EventEndDate}</td>
-                        <td data-label="Status">{item.Status}</td>
-                        <td data-label="URL"><a href={item.URL}>{item.URL}</a></td>
+                        <td data-label="Name">{program.data.Name}</td>
+                        <td data-label="Target">{program.data.Target}</td>
+                        <td data-label="Description">{program.data.Description}</td>
+                        <td data-label="AppStartDate">{program.data.AppStartDate}</td>
+                        <td data-label="AppEndDate">{program.data.AppEndDate}</td>
+                        <td data-label="EventStartDate">{program.data.EventStartDate}</td>
+                        <td data-label="EventEndDate">{program.data.EventEndDate}</td>
+                        <td data-label="Status">{program.data.Status}</td>
+                        <td data-label="URL"><a href={program.data.URL}>{program.data.URL}</a></td>
                     </tr>
                 ))}
             </tbody>
