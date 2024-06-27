@@ -2,10 +2,10 @@
     "Name": "未踏ジュニア",
     "Target": "2024-04-01時点で17歳以下の個人および、これらの年齢で構成されたグループ (最大4人)",
     "Description": "独創的なアイデア、卓越した技術を持つ 17 歳以下の小中高生や高専生などを支援するプログラム",
-    "AppStartDate": 2024-03-10,
-    "AppEndDate": 2024-04-06,
-    "EventStartDate": 2024-06-01,
-    "EventEndDate": 2024-11-31,
+    "AppStartDate": "2024-03-10",
+    "AppEndDate": "2024-04-06",
+    "EventStartDate": "2024-06-01",
+    "EventEndDate": "2024-11-31",
     "Status": "Closed",
-    "URL" : "http://example.com"
+    "URL" : "https://jr.mitou.org/"
 }

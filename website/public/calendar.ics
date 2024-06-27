@@ -4,14 +4,28 @@ PRODID:-//sebbo.net//ical-generator//EN
 NAME:My Calendar
 X-WR-CALNAME:My Calendar
 BEGIN:VEVENT
-UID:56c12ee5-c0f7-4661-90a1-afc473d67fcf
+UID:04c918d9-de79-426b-8b54-2cd4a611d8b1
 SEQUENCE:0
-DTSTAMP:20240627T123148Z
+DTSTAMP:20240627T132451Z
+DTSTART:20240416T000000Z
+DTEND:20240507T000000Z
+SUMMARY:SecHack365
+DESCRIPTION:NICTをはじめ、大学や企業など様々な分野で活
+ 躍する研究開発・セキュリティのスペシャリスト から
+ なる専門家集団（トレーナー）の助言を得ながら、サ
+ イバーセキュリティの課題解決に資する 実践的な研究
+ ・開発に取り組みます。
+URL;VALUE=URI:https://sechack365.nict.go.jp/
+END:VEVENT
+BEGIN:VEVENT
+UID:dfb60a8d-2eab-496d-8b22-7fa46c105297
+SEQUENCE:0
+DTSTAMP:20240627T132451Z
 DTSTART:20240310T000000Z
 DTEND:20240406T000000Z
 SUMMARY:未踏ジュニア
 DESCRIPTION:独創的なアイデア、卓越した技術を持つ 17 歳
  以下の小中高生や高専生などを支援するプログラム
-URL;VALUE=URI:http://example.com
+URL;VALUE=URI:https://jr.mitou.org/
 END:VEVENT
 END:VCALENDAR
