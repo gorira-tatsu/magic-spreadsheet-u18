@@ -19,13 +19,17 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: cd icalgenerator && yarn install
+      run: cd website && yarn install
 
     - name: Generate iCal file
-      run: node icalgenerator/generate-ical.js
+      run: node icalgenerator/generate-ical.mjs
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: calendar-ics
-        path: website/public/calendar.ics
+    - name: Commit and push iCal file
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add website/public/calendar.ics
+        git commit -m 'Add generated iCal file'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
